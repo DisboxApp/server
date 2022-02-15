@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "discord.js": "^12.5.1",
+    "express": "^4.17.2",
+    "leveldown": "^6.1.0",
+    "levelup": "^5.1.1",
+    "sqlite3": "^5.0.2"
+  }
+}
