@@ -20,6 +20,7 @@ app.get('/files/get/:userId', (req, res) => {
   });
 })
 
+
 app.post('/files/update/:userId/:id', (req, res) => {
   disboxFile.updateFile(req.params.userId, req.params.id, req.body, (err) => {
     if (err) {
@@ -51,6 +52,6 @@ app.delete('/files/delete/:userId/:id', (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(process.env.PORT, () => {
+  console.log(`Example app listening on port ${process.env.PORT}`)
 })
