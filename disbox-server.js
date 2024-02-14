@@ -6,7 +6,7 @@ var bodyParser = require('body-parser')
 const disboxFile = require('./disbox-file');
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -52,6 +52,6 @@ app.delete('/files/delete/:userId/:id', (req, res) => {
 });
 
 
-app.listen(process.env.PORT, () => {
-  console.log(`Example app listening on port ${process.env.PORT}`)
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
