@@ -1,5 +1,7 @@
 const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('disbox.db')
+
+const DB_URL = process.env.DB_URL || 'disbox.db';
+const db = new sqlite3.Database(DB_URL)
 
 db.run(`
 CREATE TABLE IF NOT EXISTS files (

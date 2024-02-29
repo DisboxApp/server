@@ -9,7 +9,9 @@
     "sqlite3": "^5.0.2"
   },
   "scripts": {
-    "start": "node disbox-server.js",
-    "build": "node disbox-server.js"
+    "start": "node disbox-server.js"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.2"
   }
 }
