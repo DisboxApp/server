@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.get('/files/get/:userId', (req, res) => {
   disboxFile.getFileTree(req.params.userId, (err, data) => {
     if (err) {
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }
     res.send(data);
   });
@@ -24,7 +24,7 @@ app.get('/files/get/:userId', (req, res) => {
 app.post('/files/update/:userId/:id', (req, res) => {
   disboxFile.updateFile(req.params.userId, req.params.id, req.body, (err) => {
     if (err) {
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }
     res.send(req.params.id);
   });
@@ -33,7 +33,7 @@ app.post('/files/update/:userId/:id', (req, res) => {
 app.post('/files/create/:userId', (req, res) => {
   disboxFile.createFile(req.params.userId, req.body, (err, data) => {
     if (err) {
-      res.status(500).send(err);
+      return res.status(500).send(err);
     } else {
       console.log(data);
       res.send(data.toString());
@@ -45,7 +45,7 @@ app.post('/files/create/:userId', (req, res) => {
 app.delete('/files/delete/:userId/:id', (req, res) => {
   disboxFile.deleteFile(req.params.userId, req.params.id, (err) => {
     if (err) {
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }
     res.send(req.params.id);
   });

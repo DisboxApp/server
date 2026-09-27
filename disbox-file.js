@@ -27,7 +27,7 @@ function getFileTree(user_id, resolve=() => {}) {
     db.all(`SELECT * FROM files WHERE user_id = ?`, [user_id], (err, rows) => {
         if (err) {
             console.log(err);
-            resolveError(err, null);
+            resolve(err, null);
             return;
         }
         const allDirectories = {};
@@ -47,7 +47,7 @@ function getFileTree(user_id, resolve=() => {}) {
             if (entry.parent_id === null) {
                 root.children[entry.name] = entry;
             } else {
-                if (!entry.parent_id in allDirectories) {
+                if (!(entry.parent_id in allDirectories)) {
                     allDirectories[entry.parent_id] = {
                         children: {}
                     };
